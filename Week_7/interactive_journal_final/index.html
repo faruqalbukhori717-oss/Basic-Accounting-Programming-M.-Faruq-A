@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive General Journal Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>General Journal Transaction Recording</h1>
+
+    <form id="journalForm">
+      <div class="form-group">
+        <label for="txDate">Date:</label>
+        <input type="date" id="txDate" name="txDate" required>
+      </div>
+
+      <div class="form-group">
+        <label for="refNo">Ref. No.:</label>
+        <input type="text" id="refNo" name="refNo" placeholder="Example: GJ-001" required>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" placeholder="Transaction description" required>
+      </div>
+
+      <div class="form-group">
+        <label for="account">Account:</label>
+        <select id="account" name="account" required>
+          <option value="">-- Select Account --</option>
+          <option value="Cash">Cash</option>
+          <option value="Bank">Bank</option>
+          <option value="Accounts Receivable">Accounts Receivable</option>
+          <option value="Service Revenue">Service Revenue</option>
+          <option value="Salaries Expense">Salaries Expense</option>
+          <option value="Accounts Payable">Accounts Payable</option>
+          <option value="Share Capital">Share Capital</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="debit">Debit (IDR):</label>
+          <input type="number" id="debit" name="debit" min="0" step="100" placeholder="0">
+        </div>
+
+        <div class="form-group">
+          <label for="credit">Credit (IDR):</label>
+          <input type="number" id="credit" name="credit" min="0" step="100" placeholder="0">
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button type="button" id="addRowBtn">Add Transaction Row</button>
+        <button type="button" id="saveJournalBtn">Save Journal (Dummy)</button>
+      </div>
+    </form>
+
+    <h2>Journal Entries</h2>
+    <table id="transactionTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Ref. No.</th>
+          <th>Description</th>
+          <th>Account</th>
+          <th>Debit</th>
+          <th>Credit</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Baris transaksi jurnal akan ditambahkan di sini -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
