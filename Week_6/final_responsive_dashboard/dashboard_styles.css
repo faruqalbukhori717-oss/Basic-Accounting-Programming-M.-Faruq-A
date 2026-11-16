@@ -1,0 +1,366 @@
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+/* Header & Top Navigation */
+header {
+    background-color: #1a252f;
+    color: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header-brand h1 {
+    font-size: 1.4rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 5px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+/* Main Dashboard Grid Layout (2 Columns on Desktop) */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: calc(100vh - 110px);
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 25px 15px;
+}
+
+.sidebar h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    color: #bdc3c7;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 8px;
+}
+
+.sidebar ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: #34495e;
+    padding-left: 20px;
+    color: #3498db;
+}
+
+/* Main Content Area */
+.main-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Financial Summary Cards */
+.summary-cards-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.financial-card {
+    background-color: #ffffff;
+    flex: 1 1 calc(25% - 20px);
+    min-width: 200px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #3498db;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.financial-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+}
+
+.financial-card.revenue { border-left-color: #27ae60; }
+.financial-card.expenses { border-left-color: #e74c3c; }
+.financial-card.profit { border-left-color: #2980b9; }
+.financial-card.cash { border-left-color: #f39c12; }
+
+.financial-card h3 {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+}
+
+.financial-card .amount {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 6px;
+}
+
+.trend {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.trend.positive { color: #27ae60; }
+.trend.negative { color: #e74c3c; }
+.trend.neutral { color: #7f8c8d; }
+
+/* Content Cards (Table & Form Wrappers) */
+.content-card {
+    background-color: #ffffff;
+    padding: 22px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.content-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    color: #2c3e50;
+}
+
+/* Responsive Table Wrapper */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #34495e;
+}
+
+table tbody tr:hover {
+    background-color: #f4f8fb;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge.completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* Form Styling & Interactive Focus */
+.transaction-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #34495e;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccd1d9;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 6px rgba(52, 152, 219, 0.4);
+}
+
+.submit-btn {
+    grid-column: span 2;
+    padding: 12px 20px;
+    background-color: #27ae60;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #219150;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    background-color: #1a252f;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+}
+
+/* =========================================================
+   MEDIA QUERIES FOR TABLET & MOBILE RESPONSIVENESS
+   ========================================================= */
+
+/* Tablet Breakpoint (max-width: 992px) */
+@media screen and (max-width: 992px) {
+    .financial-card {
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row on tablets */
+    }
+}
+
+/* Mobile & Small Tablet Breakpoint (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+        gap: 12px;
+    }
+
+    header nav {
+        width: 100%;
+    }
+
+    /* Responsive Navigation: Vertical Stack */
+    header nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 6px;
+    }
+
+    header nav ul li a {
+        padding: 12px 15px;
+        background-color: #243342;
+        text-align: center;
+    }
+
+    /* Main Responsive Layout: 2 Columns to 1 Column */
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        padding: 15px;
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    /* Responsive Summary Cards: Vertical Stack */
+    .summary-cards-container {
+        flex-direction: column;
+    }
+
+    .financial-card {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    /* Responsive Table */
+    table th,
+    table td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+
+    /* Responsive Form: Single Column Inputs */
+    .transaction-form {
+        grid-template-columns: 1fr;
+    }
+
+    .submit-btn {
+        grid-column: span 1;
+        width: 100%;
+    }
+}
